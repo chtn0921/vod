@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vedio On Demand</title>
+  <link href="nmd/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="stylesheets/style.css" rel="stylesheet">  
+  <link href="https://vjs.zencdn.net/5.8.8/video-js.css" rel="stylesheet">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+  <script type="text/javascript" src="nmd/bootstrap/dist/js/bootstrap.js"></script>
+  <script type="text/javascript" src="nmd/moment/min/moment.min.js"></script>
+  <script type="text/javascript" src="nmd/angular/angular.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.0/angular-ui-router.min.js"></script>
+  <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+  <script src="javascripts/angularApp.js"></script>
+  <script src="javascripts/factories.js"></script>
+  <script src="javascripts/controllers.js"></script> 
+  <base href="/"> 
+</head>
+<body ng-app="VOD">
+  <nav class="navbar navbar-default pull-right" ng-controller="NavCtrl">
+    <ul class="nav navbar-nav">
+      <li ng-show="isLoggedIn()"><a ui-sref="home">Home [{{ currentUser() }}]</a></li>
+      <li ng-show="isLoggedIn()"><a ui-sref="history">My History</a></li>
+      <li ng-show="isLoggedIn()"><a href="#" ng-click="logOut()">Log Out</a></li>
+      <li ng-hide="isLoggedIn()"><a ui-sref="login">Log In</a></li>
+      <li ng-hide="isLoggedIn()"><a ui-sref="register">Register</a></li>
+    </ul>
+  </nav>  
+  <div class="row">
+    <div class="text-center">
+      <ui-view></ui-view>
+    </div>
+  </div> 
+</body>
+</html>

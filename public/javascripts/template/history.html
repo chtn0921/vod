@@ -1,0 +1,18 @@
+<div class="page-header">
+	<h1>Video On Demand :: {{title}}</h1>      
+</div>    
+<div id="post-list-wrap" class="row">
+	<div class="container">
+		<div class="col-xs-4" ng-repeat="history in myhistory">
+			<div class="fff">
+				<div class="thumbnail">
+					<img ng-src="{{history.images[0].url}}" alt="">
+				</div>
+				<div class="caption">
+					<h4>{{history.title}}</h4>
+					<p>{{history.description | limitTo: 50}} {{history.description  > 50 ? '...' : ''}}</p>
+				</div>
+			</div>
+		</div>
+	</div><!-- /.container -->    
+</div>  	
