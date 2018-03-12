@@ -2,20 +2,6 @@ app.controller('MainCtrl', ['$scope', '$filter', 'promiseObj', 'auth','posts',
 function($scope, $filter, promiseObj, auth,posts) {
 
 	$scope.posts = [];
-
-	$scope.typeOptions = [
-	    { name: 'Publish', value: 'publish' }, 
-	    { name: 'Draft', value: 'draft' }
-    ];
-
-    $scope.status = 'publish';
-
-    $scope.categories = [];
-    $scope.category = $scope.categories['0']  || "";
-    $scope.addCategory = function(){
-    	console.log("Add category initialize");
-    };
-    	
 	if(typeof promiseObj != "undefined"){
 		$scope.posts = promiseObj;
 	}
