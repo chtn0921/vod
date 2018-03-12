@@ -34,7 +34,8 @@ router.get('/myhistory/', auth, function(req, res, next) {
       return next(err); 
     }
     console.log('history data : ', hdata); //this shows the correct user id
-    res.json(hdata.user_history);     
+    var history = (hdata && hdata.user_history) ? hdata.user_history : {}
+    res.json(history);     
   });
 });
 
@@ -111,7 +112,7 @@ router.post('/login', function(req, res, next){
     return res.status(400).json({message: 'Please fill out all fields'});
   }
 
-console.log('calling passport)');
+  //console.log('calling passport)');
   passport.authenticate('local', function(err, user, info){
     if(err){ 
       return next(err); 

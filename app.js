@@ -10,11 +10,13 @@ console.log("app start");
 
 var mongoose = require('mongoose');
 var passport = require('passport');
+
+var mongodb_uri = process.env.MONGOLAB_URI || 'mongodb://localhost/vod'; 
 //connect MongoDB
-//mongoose.connect('mongodb://localhost/vod', function(err,db){
-mongoose.connect(process.env.MONGOLAB_URI, function(err,db){
+mongoose.connect(mongodb_uri, function(err,db){
+//mongoose.connect(process.env.MONGOLAB_URI, function(err,db){
     if (!err){
-        console.log('Connected to /vod!', process.env.MONGOLAB_URI);
+        console.log('Connected to /vod!', mongodb_uri);
     } else{
         console.log('Can not Connected to /vod! Errors:');
         console.dir(err); //failed to connect
